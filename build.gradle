@@ -1,0 +1,19 @@
+plugins {
+	id "architectury-plugin" version "3.4.160"
+	id "dev.architectury.loom" version "1.9.424" apply false
+	id "base"
+}
+
+apply from: "build_dep_ver.gradle"
+
+apply plugin: "dev.architectury.loom"
+apply plugin: "architectury-plugin"
+
+loom {
+	silentMojangMappingsLicense()
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    mappings loom.officialMojangMappings()
+}
